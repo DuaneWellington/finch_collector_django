@@ -1,11 +1,23 @@
 from django.shortcuts import render
-
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Finch
 
-# finches = [
-#   {'name': 'Flicker', 'breed': 'Shaft-tail', 'description': 'never idle, always moving', 'age': 2},
-#   {'name': 'Runnymede', 'breed': 'European Goldfinch', 'description': 'gentle and loving', 'age': 2},
-# ]
+class FinchList(ListView):
+    model = Finch
+
+class FinchCreate(CreateView):
+    model = Finch
+    fields = '__all__'
+    success_url = '/finches/'
+
+class FinchUpdate(UpdateView):
+    model = Finch
+    fields = ['breed', 'description', 'age']
+
+class FinchDelete(DeleteView):
+    model = Finch
+    success_url = '/finches/detail.html'
 
 # Create your views here.
 
