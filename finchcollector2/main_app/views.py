@@ -17,7 +17,7 @@ class FinchUpdate(UpdateView):
 
 class FinchDelete(DeleteView):
     model = Finch
-    success_url = '/finches/detail.html'
+    success_url = '/finches'
 
 # Create your views here.
 
